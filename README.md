@@ -10,14 +10,16 @@ https://github.com/husamhamu/mm_app
 1.1 Прошивка АТ команд через приложение "Termit"
 1.2 Прошивка АТ команд при постоянно нажатой кнопки на HC-05 модуле
 
-![20221004_231506](https://user-images.githubusercontent.com/28355711/194029133-f7094cc8-172c-4cda-a446-4ce4ec32ba83.jpg)
+![20221004_231945](https://user-images.githubusercontent.com/28355711/194031419-cbbb14bd-3319-4d73-bef4-69d7200b4fba.jpg)
 
-![20221004_231945](https://user-images.githubusercontent.com/28355711/194029147-a28d0848-c929-485b-85d9-ba1adb805e95.jpg)
+![20221004_231508](https://user-images.githubusercontent.com/28355711/194030619-c69bb85b-3a73-46d6-8258-110492d69539.png)
+
 
 2.1 Правильно подключить пины, иначе команды проходить не будут!
 SoftwareSerial HC_05(5, 6); // создание виртуального сериал соединения на выводах TX = 5, RX = 6
 
-![image](https://user-images.githubusercontent.com/28355711/194028660-2f9b0d14-d227-4b15-9a22-7028275a27c3.png)
+![20221004_231506](https://user-images.githubusercontent.com/28355711/194031222-bc9ded63-bb84-4679-9eb2-fbc4c89bd45b.jpg)
+
 
 Код Arduino:
  
