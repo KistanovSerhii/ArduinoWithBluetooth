@@ -20,6 +20,9 @@ SoftwareSerial HC_05(5, 6); // создание виртуального сер�
 
 ![20221004_231506](https://user-images.githubusercontent.com/28355711/194031222-bc9ded63-bb84-4679-9eb2-fbc4c89bd45b.jpg)
 
+С резисторами (делитель напряжения) по 10К
+![20221004_231509](https://user-images.githubusercontent.com/28355711/194032432-f93b63e9-c294-4716-b077-ba7c58ecbc1b.png)
+
 
 Код Arduino:
  
