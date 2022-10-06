@@ -27,20 +27,20 @@ SoftwareSerial HC_05(5, 6); // создание виртуального сер�
 
 # Код Arduino:
  
-\#include <SoftwareSerial.h>\
+\#include <SoftwareSerial.h>
 
-SoftwareSerial HC_05(11, 10); // RX | TX\
+SoftwareSerial HC_05(11, 10); // RX | TX
 
 void setup()\
- {\
+ {
  
   Serial.begin(9600);\
   HC_05.begin(9600);  //Default Baud for comm, it may be different for your Module.\
   Serial.println("The bluetooth gates are open.\n Connect to HC-05 from any other bluetooth device with 1234 as pairing key!.");\ 
-}\
+}
  
 void loop()\
-{\
+{
  
   // Feed any data from bluetooth to Terminal.\
   if (HC_05.available())\
@@ -49,4 +49,4 @@ void loop()\
   // Feed all data from termial to bluetooth\
   if (Serial.available())\
     HC_05.write(Serial.read());\
-}\
+}
