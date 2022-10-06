@@ -44,7 +44,7 @@ void loop()\
  
   // Feed any data from bluetooth to Terminal.\
   if (HC_05.available())\
-    Serial.write(HC_05.read());\
+    Serial.write(HC_05.read());
  
   // Feed all data from termial to bluetooth\
   if (Serial.available())\
