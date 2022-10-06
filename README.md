@@ -25,7 +25,7 @@ SoftwareSerial HC_05(5, 6); // создание виртуального сер�
 
 ![image](https://user-images.githubusercontent.com/28355711/194367234-201b2115-dc5b-4041-b84e-069a055e791e.png)
 
-#Код Arduino:
+# Код Arduino:
  
 \#include <SoftwareSerial.h>
 
