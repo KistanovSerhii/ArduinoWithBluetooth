@@ -23,51 +23,31 @@ SoftwareSerial HC_05(5, 6); // создание виртуального сер�
 С резисторами (делитель напряжения) по 10К
 ![20221004_231509](https://user-images.githubusercontent.com/28355711/194032432-f93b63e9-c294-4716-b077-ba7c58ecbc1b.png)
 
+![image](https://user-images.githubusercontent.com/28355711/194367234-201b2115-dc5b-4041-b84e-069a055e791e.png)
 
-Код Arduino:
+#Код Arduino:
  
-#include <SoftwareSerial.h> // подключение библиотеки для эмуляции сериал-порта
- 
-SoftwareSerial HC_05(5, 6); // создание виртуального сериал соединения на выводах TX = 5, RX = 6
-char appData; //
-String inData = ""; // переменная для хранения полученных данных
- 
+\#include <SoftwareSerial.h>
+
+SoftwareSerial HC_05(11, 10); // RX | TX
+
 void setup()
-{
-  Serial.begin(9600); // инициализация сериал соединения
-  Serial.println("HC_05 serial started at 9600"); // вывод поясняющей надписи
-  HC_05.begin(9600); // инициализация соединения блютус модуля со скоростью 9600 бод
-  pinMode(13, OUTPUT); // конфигурация вывода светодиода
+ {
+ 
+  Serial.begin(9600);
+  HC_05.begin(9600);  //Default Baud for comm, it may be different for your Module. 
+  Serial.println("The bluetooth gates are open.\n Connect to HC-05 from any other bluetooth device with 1234 as pairing key!.");
  
 }
  
 void loop()
 {
-  // Test
-  if (HC_05.read() > 0) {
-    Serial.print(HC_05.available());
-  }
  
-  HC_05.listen();  // "прослушивание" порта
-  while (HC_05.available() > 0) {   // если пришла какая-то информация
-    appData = HC_05.read(); // чтение полученных данных
-    inData = String(appData);  // сохранение данных в строковом формате
-    Serial.write(appData); //выведем полученные данные в монитор сериал порта
-  }
+  // Feed any data from bluetooth to Terminal.
+  if (HC_05.available())
+    Serial.write(HC_05.read());
  
- 
-  if (Serial.available()) { // если что-то пришло в сериал порт
-    delay(3); // задержка в 3 мс
-    HC_05.write(Serial.read()); //отправить это в порт блютус модуля
-  }
- 
- 
-  if (inData == "1") { // если пришла единица
-    Serial.println("LED ON"); // поясняющая надпись в монитор порта
-    HC_05.println("LED ON"); // поясняющая надпись в блютус модуль
-    digitalWrite(13, HIGH); // включить светодиод
-    delay(500); // задержка в полсекунды
-    digitalWrite(13, LOW); // погасить светодиод
-    HC_05.println("LED OFF"); // поясняющая надпись в блютус модуль
-  }
+  // Feed all data from termial to bluetooth
+  if (Serial.available())
+    HC_05.write(Serial.read());
 }
