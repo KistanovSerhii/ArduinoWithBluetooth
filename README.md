@@ -4,7 +4,9 @@ Arduino with Bluetooth module
 https://www.youtube.com/watch?v=Ofm1oyJZlmQ
 https://github.com/husamhamu/mm_app
 
-
+ВАЖНО:
+AT+HELP - покажет доступные команды текущего модуля (команда смена пароля может быть как AT+PSWD="MyPass" так и AT+PIN="MyPass")
+Пароль устанавливается в двойных кавычках!
 
 Важные моменты:
 1.1 Прошивка АТ команд через приложение "Termit"
